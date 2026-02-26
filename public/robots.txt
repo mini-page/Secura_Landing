@@ -1,0 +1,21 @@
+# robots.txt for Secura
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://secura-seven.vercel.app/sitemap.xml
+
+# Disallow admin and private areas (if any)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Allow all crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
