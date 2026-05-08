@@ -20,7 +20,7 @@
             padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 40px auto;
             padding: 40px;
             background: var(--card);
@@ -36,36 +36,53 @@
             height: 80px;
             margin-bottom: 20px;
         }
-        h1 { color: var(--primary); font-weight: 900; letter-spacing: -1px; }
-        h2 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
-        h3 { color: #555; }
+        h1 { color: var(--primary); font-weight: 900; letter-spacing: -1px; margin-bottom: 5px; }
+        .subtitle { color: #666; font-size: 1.1rem; margin-top: 0; }
+        h2 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; text-transform: uppercase; font-size: 1.2rem; }
+        h3 { color: #444; margin-top: 25px; }
         p, li { font-size: 16px; color: #555; }
-        .highlight {
-            background: #fff3cd;
-            padding: 15px;
-            border-left: 5px solid #ffc107;
+        .legal-notice {
+            background: #eef2ff;
+            padding: 20px;
+            border-left: 5px solid var(--primary);
             border-radius: 8px;
-            margin: 20px 0;
+            margin: 25px 0;
+            font-weight: 500;
+        }
+        .warning-box {
+            background: #fff5f5;
+            padding: 20px;
+            border-left: 5px solid #ff4d4d;
+            border-radius: 8px;
+            margin: 25px 0;
         }
         footer {
             text-align: center;
-            margin-top: 40px;
-            font-size: 12px;
-            color: #999;
+            margin-top: 50px;
+            font-size: 13px;
+            color: #888;
             padding-bottom: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
         }
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-bottom: 30px;
+            background: #f1f3f9;
+            padding: 15px;
+            border-radius: 12px;
         }
         .nav-links a {
             color: var(--primary);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 14px;
         }
+        .nav-links a:hover { text-decoration: underline; }
+        code { background: #eee; padding: 2px 5px; border-radius: 4px; font-family: monospace; }
     </style>
 </head>
 <body>
@@ -74,78 +91,99 @@
     <header>
         <img src="https://raw.githubusercontent.com/umang-gupta-dev/Secura/main/assets/app_brand.png" alt="Secura Logo" class="logo" onerror="this.src='https://via.placeholder.com/80?text=S'">
         <h1>Secura</h1>
-        <p>Privacy-First File Vault & Encryption</p>
+        <p class="subtitle">Secure File Vault & Encryption</p>
     </header>
 
     <div class="nav-links">
         <a href="#privacy">Privacy Policy</a>
+        <a href="#limited-use">Limited Use Policy</a>
+        <a href="#data-handling">Data & Deletion</a>
         <a href="#terms">Terms of Service</a>
-        <a href="#data-handling">Data Handling</a>
+        <a href="#contact">Contact</a>
     </div>
 
     <section id="privacy">
         <h2>Privacy Policy</h2>
-        <p>Last Updated: May 7, 2026</p>
+        <p><strong>Last Updated: May 7, 2026</strong></p>
         
-        <p>Secura ("we", "us", or "the app") is committed to protecting your privacy. This policy explains how we handle your information when you use our mobile application.</p>
+        <p>Secura ("Application", "we", "us") is a privacy-first mobile application developed to provide local file encryption. This Privacy Policy discloses our practices regarding the collection, use, and disclosure of information we receive through the Application.</p>
 
-        <h3>1. Information Collection</h3>
-        <p>Secura follows a <strong>minimal data collection</strong> principle:</p>
+        <h3>1. Information Access and Collection</h3>
+        <p>We follow a strict "data minimization" protocol. Secura accesses the following Google User Data:</p>
         <ul>
-            <li><strong>Authentication:</strong> We use Google Sign-In to verify your identity. We only store your email address and display name locally and in a hidden backup file.</li>
-            <li><strong>Usage Data:</strong> We do not track your activity, your files, or your location. All logs are stored strictly on your device for your own auditing purposes.</li>
+            <li><strong>Google Account Information:</strong> Email address and profile name (obtained via Google Sign-In) to establish your unique identity for vault access.</li>
+            <li><strong>Google Drive AppData:</strong> Access to the <code>drive.appdata</code> scope to manage a private, hidden configuration file.</li>
         </ul>
 
-        <h3>2. Google Drive Permissions (App Data Folder)</h3>
-        <p>Secura requests access to the <code>drive.appdata</code> scope. This is a <strong>private, hidden folder</strong> on your Google Drive that only Secura can see.</p>
+        <h3>2. How We Use Your Data</h3>
+        <p>Your Google data is used exclusively for the following purposes:</p>
         <ul>
-            <li><strong>What is stored:</strong> A small JSON file containing your app settings (theme, security toggles) and your profile name.</li>
-            <li><strong>What is NOT stored:</strong> Your encrypted files, your vault keys, or your PIN. We never upload your actual vault data to the cloud.</li>
-            <li><strong>Purpose:</strong> This allows you to restore your settings and profile when you log in on a new device.</li>
+            <li><strong>Authentication:</strong> To securely sign you into the application.</li>
+            <li><strong>Cloud Sync (Settings Only):</strong> To store and restore your application preferences (e.g., theme mode, security settings) across devices.</li>
+            <li><strong>Service Improvement:</strong> To improve user-facing features directly visible within the application interface.</li>
         </ul>
 
-        <h3>3. Encryption & Local Storage</h3>
-        <p>All files you import into Secura are encrypted using <strong>AES-256-GCM</strong> encryption. The encryption keys are derived from your PIN using zero-knowledge protocols. We never have access to your PIN or your decrypted files.</p>
+        <div class="legal-notice" id="limited-use">
+            <h3>Google API Disclosure (Limited Use)</h3>
+            Secura's use and transfer to any other app of information received from Google APIs will adhere to the <strong><a href="https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes" target="_blank">Google API Services User Data Policy</a></strong>, including the Limited Use requirements.
+        </div>
+    </section>
+
+    <section id="sharing">
+        <h2>Data Sharing and Disclosure</h2>
+        <p>We do not share, sell, or disclose your Google user data to any third parties. Specifically:</p>
+        <ul>
+            <li><strong>No Data Sale:</strong> We never sell your personal information to data brokers or advertisers.</li>
+            <li><strong>No Advertising:</strong> Your data is never used for personalized or retargeted advertising.</li>
+            <li><strong>No AI Training:</strong> Your data is not used to train machine learning or artificial intelligence models.</li>
+            <li><strong>Third-Party Transfers:</strong> We do not transfer your data to third parties unless required for the direct functionality of the app (e.g., communicating directly with Google APIs) or for legal compliance.</li>
+        </ul>
     </section>
 
     <section id="data-handling">
-        <h2>Data Handling Transparency</h2>
-        <div class="highlight">
-            <strong>Critical Warning:</strong> Secura is a "Local-First" application. We do not maintain a central server. If you uninstall the app without exporting your files, <strong>your data is permanently deleted and cannot be recovered by us.</strong>
-        </div>
+        <h2>Data Retention, Security, and Deletion</h2>
         
-        <h3>Zero-Knowledge Architecture</h3>
-        <p>We use a zero-knowledge security model. This means:</p>
+        <h3>Data Security</h3>
+        <p>We implement industry-standard security procedures to protect your data. All file encryption (AES-256-GCM) happens locally on your device. Google account metadata is protected during transit via HTTPS/TLS.</p>
+
+        <h3>Retention Policy</h3>
+        <p>We retain your Google account metadata and configuration backups only for as long as your account is active. If the application is unused for an extended period, or if you request deletion, data is removed from our local caches and your private Google Drive AppData folder.</p>
+
+        <h3>User Control & Deletion Request</h3>
+        <p>You have full control over your data:</p>
         <ul>
-            <li>Your PIN is never sent to any server.</li>
-            <li>Your encryption keys are stored only in your device's hardware-backed Secure Storage.</li>
-            <li>If you forget your PIN and your Security Question answer, we cannot help you recover your files.</li>
+            <li><strong>In-App Deletion:</strong> You can use the "Factory Reset" option in Settings to wipe all local data.</li>
+            <li><strong>Cloud Deletion:</strong> You can disconnect Secura from your Google Account via your Google Security Settings, which will prevent further access to your Drive.</li>
+            <li><strong>Manual Deletion Request:</strong> To request permanent deletion of any metadata associated with your email, please contact us at the address listed in the <a href="#contact">Contact</a> section. We will process your request within 30 days.</li>
         </ul>
+
+        <div class="warning-box">
+            <strong>CRITICAL DATA LOSS WARNING:</strong> Secura is a "Local-First" application. We do not store your encrypted files on our servers. Uninstalling the Application without exporting your files will result in <strong>permanent and unrecoverable data loss</strong>. We cannot recover these files for you.
+        </div>
     </section>
 
     <section id="terms">
         <h2>Terms of Service</h2>
         
         <h3>1. Acceptance of Terms</h3>
-        <p>By using Secura, you agree to these terms. If you do not agree, please do not use the application.</p>
+        <p>By installing or using Secura, you agree to be bound by these Terms of Service. If you disagree with any part, you must not use the application.</p>
 
-        <h3>2. User Responsibility</h3>
-        <p>You are solely responsible for:</p>
-        <ul>
-            <li>Maintaining the confidentiality of your PIN.</li>
-            <li>Remembering the answer to your Security Question.</li>
-            <li>Backing up (exporting) your files before uninstalling the app or factory resetting your device.</li>
-        </ul>
+        <h3>2. Zero-Knowledge Responsibility</h3>
+        <p>You acknowledge that Secura operates on a <strong>Zero-Knowledge</strong> basis. You are solely responsible for remembering your PIN and the answer to your Security Question. If both are lost, your encrypted files cannot be decrypted by anyone, including the developers.</p>
 
         <h3>3. Limitation of Liability</h3>
-        <p>Secura is provided "as is" without any warranties. We are not liable for any data loss resulting from forgotten PINs, app uninstallation, hardware failure, or unauthorized access to your device.</p>
+        <p>Secura is provided "AS IS" and "AS AVAILABLE". We shall not be liable for any indirect, incidental, or consequential damages, including but not limited to loss of data, hardware failure, or unauthorized access resulting from user negligence (e.g., weak PINs or shared devices).</p>
+    </section>
 
-        <h3>4. Prohibited Uses</h3>
-        <p>You may not use Secura to store illegal material or engage in activities that violate local or international laws.</p>
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p>For privacy inquiries, data deletion requests, or technical support, please contact the developer:</p>
+        <p><strong>Email:</strong> raghavans5711@gmail.com</p>
+        <p><strong>Developer:</strong> Raghavan</p>
     </section>
 
     <footer>
-        <p>&copy; 2026 Secura. Built for privacy and security.</p>
+        <p>&copy; 2026 Secura. This application is not affiliated with Google LLC. "Google Drive" is a trademark of Google LLC.</p>
     </footer>
 </div>
 
