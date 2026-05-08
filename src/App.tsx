@@ -887,14 +887,14 @@ export default function App() {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight mb-6"
                             >
-                                Secure file vault<br />
+                                Secura<br />
                                 <motion.span
                                     className={`bg-gradient-to-r ${theme.gradient} bg-clip-text text-transparent inline-block`}
                                     animate={prefersReducedMotion ? {} : { backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
                                     transition={{ duration: 5, repeat: Infinity }}
                                     style={{ backgroundSize: '200% 200%' }}
                                 >
-                                    for every device
+                                    Secure File Vault
                                 </motion.span>
                             </motion.h1>
 
@@ -904,7 +904,7 @@ export default function App() {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                                 className={`text-lg sm:text-xl ${theme.textMuted} max-w-3xl mx-auto mb-10`}
                             >
-                                Your encrypted workspace on web and mobile. Keep files protected, searchable, and always in your control.
+                                Your encrypted workspace. Keep files protected with AES-256 encryption.
                             </motion.p>
 
                             <motion.div
