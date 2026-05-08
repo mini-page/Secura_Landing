@@ -746,10 +746,10 @@ export default function App() {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 className={`${theme.textMuted} hover:text-white transition-colors px-4 py-2`}
-                                aria-label="Sign in to your account"
+                                aria-label="View Privacy Policy"
                             >
-                                Sign In
-                            </motion.button>
+                                Privacy Policy
+                            </motion.a>
                             <motion.a
                                 href="#download"
                                 className={`bg-gradient-to-r ${theme.gradientBg} text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg ${darkMode ? 'shadow-blue-500/25' : 'shadow-blue-500/30'}`}
@@ -827,11 +827,11 @@ export default function App() {
                                     Privacy Policy
                                 </a>
                                 <div className="pt-4 space-y-3">
-                                    <button className={`w-full ${theme.textMuted} hover:text-white py-2.5 border ${theme.border} rounded-full`}>
-                                        Sign In
-                                    </button>
-                                    <a href="#download" target="_blank" rel="noopener noreferrer" className={`block w-full bg-gradient-to-r ${theme.gradientBg} text-white py-2.5 rounded-full font-medium text-center`}>
-                                        Get Started Free
+                                    <a href="/privacy" className={`block w-full ${theme.textMuted} hover:text-white py-2.5 border ${theme.border} rounded-full text-center`}>
+                                        Privacy Policy
+                                    </a>
+                                    <a href="#download" className={`block w-full bg-gradient-to-r ${theme.gradientBg} text-white py-2.5 rounded-full font-medium text-center`}>
+                                        Download App
                                     </a>
                                 </div>
                             </div>
