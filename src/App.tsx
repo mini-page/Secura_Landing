@@ -719,7 +719,7 @@ export default function App() {
                                 </motion.a>
                             ))}
                             <a
-                                href="https://secura-terms.vercel.app/"
+                                href="/privacy"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`${theme.textMuted} hover:text-white transition-colors relative group`}
@@ -751,16 +751,12 @@ export default function App() {
                                 Sign In
                             </motion.button>
                             <motion.a
-                                href="https://vault-secura.vercel.app/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                                href="#download"
                                 className={`bg-gradient-to-r ${theme.gradientBg} text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg ${darkMode ? 'shadow-blue-500/25' : 'shadow-blue-500/30'}`}
-                                aria-label="Get started with Secura for free"
+                                aria-label="Download Secura app"
                                 {...animationProps}
                             >
-                                Get Started Free
+                                Download App
                             </motion.a>
                         </div>
 
@@ -821,7 +817,7 @@ export default function App() {
                                     </a>
                                 ))}
                                 <a
-                                    href="https://secura-terms.vercel.app/"
+                                    href="/privacy"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`block ${darkMode ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'} py-2`}
@@ -834,7 +830,7 @@ export default function App() {
                                     <button className={`w-full ${theme.textMuted} hover:text-white py-2.5 border ${theme.border} rounded-full`}>
                                         Sign In
                                     </button>
-                                    <a href="https://vault-secura.vercel.app/" target="_blank" rel="noopener noreferrer" className={`block w-full bg-gradient-to-r ${theme.gradientBg} text-white py-2.5 rounded-full font-medium text-center`}>
+                                    <a href="#download" target="_blank" rel="noopener noreferrer" className={`block w-full bg-gradient-to-r ${theme.gradientBg} text-white py-2.5 rounded-full font-medium text-center`}>
                                         Get Started Free
                                     </a>
                                 </div>
@@ -918,7 +914,7 @@ export default function App() {
                                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
                             >
                                 <motion.a
-                                    href="https://vault-secura.vercel.app/"
+                                    href="#download"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.05 }}
@@ -1477,7 +1473,7 @@ export default function App() {
                                 </p>
                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                     <motion.a
-                                        href="https://vault-secura.vercel.app/"
+                                        href="#download"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         whileHover={{ scale: 1.05 }}
@@ -1519,7 +1515,7 @@ export default function App() {
                         <p className={`${theme.textMuted} text-sm`}>© 2024 Secura. All rights reserved.</p>
                         <div className="flex items-center gap-6">
                             <a 
-                                href="https://secura-terms.vercel.app/" 
+                                href="/privacy" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className={`${theme.textMuted} text-sm hover:text-white transition-colors`}
