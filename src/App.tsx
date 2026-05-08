@@ -946,6 +946,7 @@ export default function App() {
                                 className={`mt-16 pt-16 border-t ${theme.border}`}
                             >
                                 <p className={`${theme.textMuted} text-sm mb-6`}>Your data. Your control. Fully protected.</p>
+                                <p className={`${theme.textMuted} text-xs opacity-50`}>Package: com.secura.vault</p>
                                 <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
                                     {['HIPAA', 'GDPR', 'SOC 2', 'ISO 27001', 'Zero-Knowledge'].map((cert, i) => (
                                         <motion.div
