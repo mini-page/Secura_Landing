@@ -319,8 +319,8 @@ const ComparisonCalculator = ({ darkMode }: { darkMode: boolean }) => {
                     <div
                         key={c.name}
                         className={`flex justify-between items-center p-3 rounded-lg ${c.name === 'Secura'
-                                ? 'bg-blue-500/20 border border-blue-500/30'
-                                : darkMode ? 'bg-slate-700' : 'bg-white'
+                            ? 'bg-blue-500/20 border border-blue-500/30'
+                            : darkMode ? 'bg-slate-700' : 'bg-white'
                             }`}
                     >
                         <div className="flex items-center gap-2">
@@ -718,6 +718,16 @@ export default function App() {
                                     <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r ${theme.gradient} group-hover:w-full transition-all duration-300`} />
                                 </motion.a>
                             ))}
+                            <a
+                                href="https://secura-terms.vercel.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`${theme.textMuted} hover:text-white transition-colors relative group`}
+                                role="menuitem"
+                            >
+                                Privacy Policy
+                                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r ${theme.gradient} group-hover:w-full transition-all duration-300`} />
+                            </a>
                         </div>
 
                         <div className="hidden lg:flex items-center gap-4">
@@ -741,7 +751,7 @@ export default function App() {
                                 Sign In
                             </motion.button>
                             <motion.a
-                                href="https://secura-seven.vercel.app/"
+                                href="https://vault-secura.vercel.app/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
@@ -810,11 +820,21 @@ export default function App() {
                                         {item}
                                     </a>
                                 ))}
+                                <a
+                                    href="https://secura-terms.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`block ${darkMode ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'} py-2`}
+                                    onClick={() => setMenuOpen(false)}
+                                    role="menuitem"
+                                >
+                                    Privacy Policy
+                                </a>
                                 <div className="pt-4 space-y-3">
                                     <button className={`w-full ${theme.textMuted} hover:text-white py-2.5 border ${theme.border} rounded-full`}>
                                         Sign In
                                     </button>
-                                    <a href="https://secura-seven.vercel.app/" target="_blank" rel="noopener noreferrer" className={`block w-full bg-gradient-to-r ${theme.gradientBg} text-white py-2.5 rounded-full font-medium text-center`}>
+                                    <a href="https://vault-secura.vercel.app/" target="_blank" rel="noopener noreferrer" className={`block w-full bg-gradient-to-r ${theme.gradientBg} text-white py-2.5 rounded-full font-medium text-center`}>
                                         Get Started Free
                                     </a>
                                 </div>
@@ -898,7 +918,7 @@ export default function App() {
                                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
                             >
                                 <motion.a
-                                    href="https://secura-seven.vercel.app/"
+                                    href="https://vault-secura.vercel.app/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.05 }}
@@ -1457,7 +1477,7 @@ export default function App() {
                                 </p>
                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                     <motion.a
-                                        href="https://secura-seven.vercel.app/"
+                                        href="https://vault-secura.vercel.app/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         whileHover={{ scale: 1.05 }}
@@ -1497,7 +1517,21 @@ export default function App() {
                             <span className="text-xl font-bold">Secura</span>
                         </div>
                         <p className={`${theme.textMuted} text-sm`}>© 2024 Secura. All rights reserved.</p>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-6">
+                            <a 
+                                href="https://secura-terms.vercel.app/" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className={`${theme.textMuted} text-sm hover:text-white transition-colors`}
+                            >
+                                Privacy Policy
+                            </a>
+                            <a 
+                                href="mailto:raghavans5711@gmail.com"
+                                className={`${theme.textMuted} text-sm hover:text-white transition-colors`}
+                            >
+                                Contact
+                            </a>
                             {['HIPAA', 'GDPR', 'SOC 2'].map(cert => (
                                 <span key={cert} className={`${theme.textMuted} text-sm`}>{cert}</span>
                             ))}
