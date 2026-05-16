@@ -749,7 +749,7 @@ export default function App() {
                                 aria-label="View Privacy Policy"
                             >
                                 Privacy Policy
-                            </motion.a>
+                            </motion.button>
                             <motion.a
                                 href="https://github.com/mini-page/Secura/releases"
                                 target="_blank"
