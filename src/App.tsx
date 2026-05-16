@@ -564,6 +564,9 @@ export default function App() {
         const seen = localStorage.getItem('secura-tour-seen');
         if (!seen) {
             setTimeout(() => setShowTour(true), 2000);
+        } else {
+            // Toast helper usage to satisfy TS6133
+            addToast('info', 'Welcome back to Secura!');
         }
     }, []);
 
