@@ -745,14 +745,6 @@ export default function App() {
                                 {darkMode ? <Sun className="w-5 h-5" aria-hidden="true" /> : <Moon className="w-5 h-5" aria-hidden="true" />}
                             </motion.button>
 
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className={`${theme.textMuted} hover:text-white transition-colors px-4 py-2`}
-                                aria-label="View Privacy Policy"
-                            >
-                                Privacy Policy
-                            </motion.button>
                             <motion.a
                                 href="https://github.com/mini-page/Secura/releases"
                                 target="_blank"
