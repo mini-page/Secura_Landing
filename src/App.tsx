@@ -751,7 +751,9 @@ export default function App() {
                                 Privacy Policy
                             </motion.a>
                             <motion.a
-                                href="#download"
+                                href="https://github.com/mini-page/Secura/releases"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className={`bg-gradient-to-r ${theme.gradientBg} text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg ${darkMode ? 'shadow-blue-500/25' : 'shadow-blue-500/30'}`}
                                 aria-label="Download Secura app"
                                 {...animationProps}
@@ -914,7 +916,7 @@ export default function App() {
                                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
                             >
                                 <motion.a
-                                    href="#download"
+                                    href="https://vault-secura.vercel.app/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.05 }}
@@ -1474,7 +1476,7 @@ export default function App() {
                                 </p>
                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                     <motion.a
-                                        href="#download"
+                                        href="https://vault-secura.vercel.app/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         whileHover={{ scale: 1.05 }}
@@ -1487,15 +1489,15 @@ export default function App() {
                                             <ArrowRight className="w-5 h-5" aria-hidden="true" />
                                         </motion.span>
                                     </motion.a>
-                                    <motion.button
+                                    <motion.a
+                                        href="mailto:raghavans5711+securaSales@gmail.com"
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
-                                        onClick={() => addToast('info', 'Contact form coming soon!')}
-                                        className="text-white border-2 border-white/30 hover:border-white/50 hover:bg-white/10 px-8 py-4 rounded-full font-semibold text-lg transition-all"
+                                        className="text-white border-2 border-white/30 hover:border-white/50 hover:bg-white/10 px-8 py-4 rounded-full font-semibold text-lg transition-all flex items-center justify-center"
                                         aria-label="Contact sales team"
                                     >
                                         Contact Sales
-                                    </motion.button>
+                                    </motion.a>
                                 </div>
                             </div>
                         </motion.div>
@@ -1524,7 +1526,7 @@ export default function App() {
                                 Privacy Policy
                             </a>
                             <a 
-                                href="mailto:raghavans5711@gmail.com"
+                                href="mailto:raghavans5711+securaSales@gmail.com"
                                 className={`${theme.textMuted} text-sm hover:text-white transition-colors`}
                             >
                                 Contact
