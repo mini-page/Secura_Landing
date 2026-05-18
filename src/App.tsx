@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
-    Menu, X, ArrowRight, Shield, Lock, Users, ChevronRight,
+    Menu, X, ArrowRight, Shield, Lock,
     Search, History, Cloud, Eye, Server, CheckCircle, AlertTriangle,
-    Settings, Upload, FileText, Database, RefreshCw, UserPlus,
-    ShieldCheck, Activity, UserCog, ChevronDown, ChevronUp, Sun, Moon,
-    Sparkles, ArrowUp, Play, XCircle, Info, AlertCircle, Loader2
+    Upload, FileText, Database, RefreshCw, UserPlus,
+    ShieldCheck, Activity, ChevronDown, ChevronUp, Sun, Moon,
+    ArrowUp, Play, XCircle, Info, AlertCircle, Loader2
 } from 'lucide-react';
 
 // ==================== TYPES ====================
