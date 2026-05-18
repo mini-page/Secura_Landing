@@ -449,81 +449,6 @@ const VideoSection = ({ darkMode }: { darkMode: boolean }) => {
     );
 };
 
-// Feature Tour
-const FeatureTour = ({ darkMode, onClose }: { darkMode: boolean; onClose: () => void }) => {
-    const [step, setStep] = useState(0);
-    const steps = [
-        { title: 'Upload Files', description: 'Drag and drop or click to upload any file type' },
-        { title: 'Auto Encryption', description: 'Files are automatically encrypted with AES-256' },
-        { title: 'Choose Storage', description: 'Save locally, to cloud, or use our platform' },
-        { title: 'Share Securely', description: 'Share with encrypted links and expiry dates' },
-    ];
-
-    return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="tour-title"
-        >
-            <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className={`${darkMode ? 'bg-slate-800' : 'bg-white'} rounded-2xl p-8 max-w-md mx-4 shadow-xl`}
-            >
-                <div className="flex justify-between items-center mb-6">
-                    <h3 id="tour-title" className="text-xl font-bold">Quick Tour</h3>
-                    <button onClick={onClose} className="p-1 hover:bg-slate-700 rounded" aria-label="Close tour">
-                        <X className="w-5 h-5" />
-                    </button>
-                </div>
-
-                <div className="mb-6">
-                    <div className="flex gap-2 mb-4">
-                        {steps.map((_, i) => (
-                            <div
-                                key={i}
-                                className={`h-1 flex-1 rounded ${i <= step ? 'bg-blue-500' : darkMode ? 'bg-slate-700' : 'bg-slate-200'}`}
-                            />
-                        ))}
-                    </div>
-                    <h4 className="text-lg font-semibold mb-2">{steps[step].title}</h4>
-                    <p className={darkMode ? 'text-slate-400' : 'text-slate-600'}>{steps[step].description}</p>
-                </div>
-
-                <div className="flex gap-3">
-                    {step > 0 && (
-                        <button
-                            onClick={() => setStep(step - 1)}
-                            className={`flex-1 py-2 rounded-lg border ${darkMode ? 'border-slate-600' : 'border-slate-300'}`}
-                        >
-                            Previous
-                        </button>
-                    )}
-                    {step < steps.length - 1 ? (
-                        <button
-                            onClick={() => setStep(step + 1)}
-                            className="flex-1 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white"
-                        >
-                            Next
-                        </button>
-                    ) : (
-                        <button
-                            onClick={onClose}
-                            className="flex-1 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white"
-                        >
-                            Get Started
-                        </button>
-                    )}
-                </div>
-            </motion.div>
-        </motion.div>
-    );
-};
-
 // ==================== MAIN APP ====================
 export default function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -1499,10 +1424,61 @@ export default function App() {
             {/* Overlays */}
             <BackToTop />
             <ToastContainer toasts={toasts} onDismiss={dismissToast} />
+        </div>
+    );
+}                          <motion.a
+                                        href="mailto:raghavans5711+securaSales@gmail.com"
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        className="text-white border-2 border-white/30 hover:border-white/50 hover:bg-white/10 px-8 py-4 rounded-full font-semibold text-lg transition-all flex items-center justify-center"
+                                        aria-label="Contact sales team"
+                                    >
+                                        Contact Sales
+                                    </motion.a>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+            </main>
 
-            <AnimatePresence>
-                {showTour && <FeatureTour darkMode={darkMode} onClose={closeTour} />}
-            </AnimatePresence>
+            {/* Footer */}
+            <footer className={`border-t ${theme.border} py-12 lg:py-16`} role="contentinfo">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div className="flex items-center gap-2">
+                            <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${theme.gradientBg} flex items-center justify-center`}>
+                                <Shield className="w-5 h-5 text-white" aria-hidden="true" />
+                            </div>
+                            <span className="text-xl font-bold">Secura</span>
+                        </div>
+                        <p className={`${theme.textMuted} text-sm`}>© 2024 Secura. All rights reserved.</p>
+                        <div className="flex items-center gap-6">
+                            <a 
+                                href="/privacy" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className={`${theme.textMuted} text-sm hover:text-white transition-colors`}
+                            >
+                                Privacy Policy
+                            </a>
+                            <a 
+                                href="mailto:raghavans5711+securaSales@gmail.com"
+                                className={`${theme.textMuted} text-sm hover:text-white transition-colors`}
+                            >
+                                Contact
+                            </a>
+                            {['AES-256', 'End-to-End', 'Zero-Knowledge'].map(cert => (
+                                <span key={cert} className={`${theme.textMuted} text-sm`}>{cert}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            {/* Overlays */}
+            <BackToTop />
+            <ToastContainer toasts={toasts} onDismiss={dismissToast} />
         </div>
     );
 }
