@@ -528,7 +528,6 @@ const FeatureTour = ({ darkMode, onClose }: { darkMode: boolean; onClose: () => 
 export default function App() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [activeTab, setActiveTab] = useState<'users' | 'admins'>('users');
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const [darkMode, setDarkMode] = useState(() => {
         if (typeof window !== 'undefined') {
@@ -602,19 +601,18 @@ export default function App() {
 
     const coreFeatures = [
         { icon: <Lock className="w-8 h-8" />, title: "Client-Side Encryption", number: "1" },
-        { icon: <Users className="w-8 h-8" />, title: "Role-Based Access", number: "2" },
+        { icon: <Shield className="w-8 h-8" />, title: "Secure Access", number: "2" },
         { icon: <Database className="w-8 h-8" />, title: "Secure Storage", number: "3" },
-        { icon: <Activity className="w-8 h-8" />, title: "Activity Logging", number: "4" },
-        { icon: <UserCog className="w-8 h-8" />, title: "Admin Monitoring", number: "5" }
+        { icon: <Activity className="w-8 h-8" />, title: "Activity Logging", number: "4" }
     ];
 
     const competitors = [
-        { name: "Secura", e2ee: true, clientSide: true, audit: true, rbac: true, password: true, otp: true, integration: true, pricing: "Free", highlight: true },
-        { name: "MEGA", e2ee: true, clientSide: true, audit: false, rbac: true, password: false, otp: true, integration: false, pricing: "Freemium" },
-        { name: "Sync.com", e2ee: true, clientSide: true, audit: false, rbac: true, password: false, otp: true, integration: false, pricing: "Paid" },
-        { name: "NordLocker", e2ee: true, clientSide: true, audit: false, rbac: false, password: false, otp: true, integration: false, pricing: "Premium" },
-        { name: "Dropbox", e2ee: false, clientSide: false, audit: true, rbac: true, password: false, otp: true, integration: false, pricing: "Paid" },
-        { name: "Google Drive", e2ee: false, clientSide: false, audit: false, rbac: true, password: false, otp: true, integration: false, pricing: "Varies" },
+        { name: "Secura", e2ee: true, clientSide: true, audit: true, password: true, otp: true, integration: true, pricing: "Free", highlight: true },
+        { name: "MEGA", e2ee: true, clientSide: true, audit: false, password: false, otp: true, integration: false, pricing: "Freemium" },
+        { name: "Sync.com", e2ee: true, clientSide: true, audit: false, password: false, otp: true, integration: false, pricing: "Paid" },
+        { name: "NordLocker", e2ee: true, clientSide: true, audit: false, password: false, otp: true, integration: false, pricing: "Premium" },
+        { name: "Dropbox", e2ee: false, clientSide: false, audit: true, password: false, otp: true, integration: false, pricing: "Paid" },
+        { name: "Google Drive", e2ee: false, clientSide: false, audit: false, password: false, otp: true, integration: false, pricing: "Varies" },
     ];
 
     const userWorkflow = [
@@ -622,13 +620,6 @@ export default function App() {
         { step: 2, title: "Upload", description: "Bulk upload with passwords" },
         { step: 3, title: "Encrypt", description: "Client-side encryption" },
         { step: 4, title: "Store", description: "Local or cloud storage" }
-    ];
-
-    const adminWorkflow = [
-        { step: 1, title: "Manage", description: "Create accounts & roles" },
-        { step: 2, title: "Monitor", description: "Real-time dashboards" },
-        { step: 3, title: "Audit", description: "Export logs" },
-        { step: 4, title: "Control", description: "Block & restrict" }
     ];
 
     const stats = [
@@ -647,11 +638,19 @@ export default function App() {
     ];
 
     const team = [
-        { name: "Umang Gupta", role: "Project Leader", responsibilities: ["Encryption", "Security", "Architecture"] },
-        { name: "Tribhuvan Pratap Singh", role: "Frontend Dev", responsibilities: ["UI/UX", "Interactivity"] },
-        { name: "Vineet Vikram Rao", role: "Database", responsibilities: ["MySQL", "Cloud"] },
-        { name: "Vipul & V. Dhar", role: "Testing", responsibilities: ["QA", "Docs"] }
+        { name: "Umang Gupta", role: "Lead & System Architecture Designer", responsibilities: ["System Design", "Security", "Architecture"] },
+        { name: "Tribhuvan Pratap Singh", role: "UI Design & Frontend", responsibilities: ["UI/UX", "Frontend", "Interactivity"] },
+        { name: "Vineet Vikram Rao", role: "Cloud & User Management", responsibilities: ["User Auth", "Cloud", "Management"] },
+        { name: "Vaishnavi & Vipul", role: "Documentation & Testing", responsibilities: ["QA", "Documentation", "Testing"] }
     ];
+
+    const certDescriptions: Record<string, string> = {
+        'AES-256': 'Military-grade encryption standard used globally to secure sensitive data.',
+        'End-to-End': 'Data is encrypted on your device and only decrypted by the intended recipient.',
+        'Zero-Knowledge': 'We have no access to your keys or data; you are in complete control.',
+        'GDPR Ready': 'Designed with privacy by design to help you meet data protection regulations.',
+        'Open Source': 'Transparent and verifiable code that the community can audit and trust.'
+    };
 
     const theme = {
         bg: darkMode ? 'bg-slate-950' : 'bg-slate-50',
@@ -746,7 +745,7 @@ export default function App() {
                             </motion.button>
 
                             <motion.a
-                                href="https://github.com/mini-page/Secura/releases"
+                                href="https://github.com/mini-page/Secura/releases/tag/v2.0.0"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`bg-gradient-to-r ${theme.gradientBg} text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg ${darkMode ? 'shadow-blue-500/25' : 'shadow-blue-500/30'}`}
@@ -865,16 +864,10 @@ export default function App() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
-                                className={`inline-flex items-center gap-2 ${darkMode ? 'bg-slate-800/50 border-slate-700' : 'bg-white border-slate-200'} border rounded-full px-4 py-1.5 mb-8`}
+                                className={`inline-flex items-center gap-2 ${darkMode ? 'bg-slate-800/30 border-slate-800' : 'bg-slate-100 border-slate-200'} border rounded-full px-4 py-1 mb-8`}
                             >
-                                <motion.div
-                                    animate={prefersReducedMotion ? {} : { rotate: 360 }}
-                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                                >
-                                    <Sparkles className={`w-4 h-4 ${theme.accent}`} aria-hidden="true" />
-                                </motion.div>
-                                <span className={`text-sm ${theme.textMuted}`}>Secure File Storage System</span>
-                                <ChevronRight className={`w-4 h-4 ${theme.textMuted}`} aria-hidden="true" />
+                                <Shield className={`w-3.5 h-3.5 ${theme.accent}`} aria-hidden="true" />
+                                <span className={`text-xs font-medium tracking-wide uppercase ${theme.textMuted}`}>Secure File Storage System</span>
                             </motion.div>
 
                             <motion.h1
@@ -945,18 +938,25 @@ export default function App() {
                                 <p className={`${theme.textMuted} text-sm mb-6`}>Your data. Your control. Fully protected.</p>
                                 <p className={`${theme.textMuted} text-xs opacity-50`}>Package: com.secura.vault</p>
                                 <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
-                                    {['HIPAA', 'GDPR', 'SOC 2', 'ISO 27001', 'Zero-Knowledge'].map((cert, i) => (
+                                    {['AES-256', 'End-to-End', 'Zero-Knowledge', 'GDPR Ready', 'Open Source'].map((cert, i) => (
                                         <motion.div
                                             key={cert}
                                             initial={{ opacity: 0, scale: 0.8 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: 0.6 + i * 0.1 }}
                                             whileHover={{ scale: 1.1, y: -5 }}
-                                            className={`flex items-center gap-2 ${darkMode ? 'bg-slate-800/50' : 'bg-white'} px-4 py-2 rounded-lg cursor-pointer`}
+                                            className={`group relative flex items-center gap-2 ${darkMode ? 'bg-slate-800/50' : 'bg-white'} px-4 py-2 rounded-lg cursor-pointer`}
                                             role="listitem"
+                                            title={certDescriptions[cert] || ''}
                                         >
                                             <CheckCircle className={`w-4 h-4 ${theme.accent}`} aria-hidden="true" />
                                             <span className={`text-sm font-medium ${theme.textMuted}`}>{cert}</span>
+                                            <Info className="w-3 h-3 opacity-30 group-hover:opacity-100 transition-opacity" />
+                                            
+                                            {/* Tooltip */}
+                                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-slate-900 text-white text-[10px] rounded shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-50 text-center">
+                                                {certDescriptions[cert] || 'Security Standard'}
+                                            </div>
                                         </motion.div>
                                     ))}
                                 </div>
@@ -1020,7 +1020,7 @@ export default function App() {
                 </section>
 
                 {/* Solution Section */}
-                <section className="py-20 lg:py-32" aria-labelledby="solution-heading">
+                <section id="security" className="py-20 lg:py-32" aria-labelledby="solution-heading">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -1213,7 +1213,6 @@ export default function App() {
                                         <th scope="col" className="text-center py-4 px-4 font-semibold">E2E</th>
                                         <th scope="col" className="text-center py-4 px-4 font-semibold">Client</th>
                                         <th scope="col" className="text-center py-4 px-4 font-semibold">Audit</th>
-                                        <th scope="col" className="text-center py-4 px-4 font-semibold">RBAC</th>
                                         <th scope="col" className="text-center py-4 px-4 font-semibold">Password</th>
                                         <th scope="col" className="text-center py-4 px-4 font-semibold">OTP</th>
                                         <th scope="col" className="text-center py-4 px-4 font-semibold">Integration</th>
@@ -1235,7 +1234,6 @@ export default function App() {
                                             <td className="text-center py-4 px-4">{comp.e2ee ? <CheckCircle className={`w-5 h-5 ${theme.success} mx-auto`} aria-label="Yes" /> : <X className={`w-5 h-5 ${theme.error} mx-auto`} aria-label="No" />}</td>
                                             <td className="text-center py-4 px-4">{comp.clientSide ? <CheckCircle className={`w-5 h-5 ${theme.success} mx-auto`} aria-label="Yes" /> : <X className={`w-5 h-5 ${theme.error} mx-auto`} aria-label="No" />}</td>
                                             <td className="text-center py-4 px-4">{comp.audit ? <CheckCircle className={`w-5 h-5 ${theme.success} mx-auto`} aria-label="Yes" /> : <X className={`w-5 h-5 ${theme.error} mx-auto`} aria-label="No" />}</td>
-                                            <td className="text-center py-4 px-4">{comp.rbac ? <CheckCircle className={`w-5 h-5 ${theme.success} mx-auto`} aria-label="Yes" /> : <X className={`w-5 h-5 ${theme.error} mx-auto`} aria-label="No" />}</td>
                                             <td className="text-center py-4 px-4">{comp.password ? <CheckCircle className={`w-5 h-5 ${theme.success} mx-auto`} aria-label="Yes" /> : <X className={`w-5 h-5 ${theme.error} mx-auto`} aria-label="No" />}</td>
                                             <td className="text-center py-4 px-4">{comp.otp ? <CheckCircle className={`w-5 h-5 ${theme.success} mx-auto`} aria-label="Yes" /> : <X className={`w-5 h-5 ${theme.error} mx-auto`} aria-label="No" />}</td>
                                             <td className="text-center py-4 px-4">{comp.integration ? <CheckCircle className={`w-5 h-5 ${theme.success} mx-auto`} aria-label="Yes" /> : <X className={`w-5 h-5 ${theme.error} mx-auto`} aria-label="No" />}</td>
@@ -1284,60 +1282,24 @@ export default function App() {
                             <h2 id="workflow-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">System Workflow</h2>
                         </motion.div>
 
-                        <div className="flex justify-center mb-12" role="tablist">
-                            <div className={`${darkMode ? 'bg-slate-800' : 'bg-slate-200'} rounded-full p-1 flex`}>
-                                <button
-                                    onClick={() => setActiveTab('users')}
-                                    className={`px-6 py-2.5 rounded-full font-medium transition-all ${activeTab === 'users' ? `bg-gradient-to-r ${theme.gradientBg} text-white` : theme.textMuted}`}
-                                    role="tab"
-                                    aria-selected={activeTab === 'users'}
-                                    aria-controls="user-panel"
-                                    id="user-tab"
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {userWorkflow.map((item, index) => (
+                                <motion.div
+                                    key={item.step}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    whileHover={{ y: -5 }}
+                                    className={`${theme.card} rounded-2xl p-6 h-full`}
+                                    tabIndex={0}
                                 >
-                                    <Users className="w-4 h-4 inline mr-2" aria-hidden="true" />User Flow
-                                </button>
-                                <button
-                                    onClick={() => setActiveTab('admins')}
-                                    className={`px-6 py-2.5 rounded-full font-medium transition-all ${activeTab === 'admins' ? `bg-gradient-to-r ${theme.gradientBg} text-white` : theme.textMuted}`}
-                                    role="tab"
-                                    aria-selected={activeTab === 'admins'}
-                                    aria-controls="admin-panel"
-                                    id="admin-tab"
-                                >
-                                    <Settings className="w-4 h-4 inline mr-2" aria-hidden="true" />Admin Flow
-                                </button>
-                            </div>
+                                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${theme.gradientBg} flex items-center justify-center text-xl font-bold mb-4 text-white`}>{item.step}</div>
+                                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                                    <p className={`${theme.textMuted} text-sm`}>{item.description}</p>
+                                </motion.div>
+                            ))}
                         </div>
-
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeTab}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.3 }}
-                                className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-                                role="tabpanel"
-                                id={`${activeTab}-panel`}
-                                aria-labelledby={`${activeTab}-tab`}
-                            >
-                                {(activeTab === 'users' ? userWorkflow : adminWorkflow).map((item, index) => (
-                                    <motion.div
-                                        key={item.step}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: index * 0.1 }}
-                                        whileHover={{ y: -5 }}
-                                        className={`${theme.card} rounded-2xl p-6 h-full`}
-                                        tabIndex={0}
-                                    >
-                                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${theme.gradientBg} flex items-center justify-center text-xl font-bold mb-4 text-white`}>{item.step}</div>
-                                        <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                                        <p className={`${theme.textMuted} text-sm`}>{item.description}</p>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        </AnimatePresence>
                     </div>
                 </section>
 
@@ -1526,7 +1488,7 @@ export default function App() {
                             >
                                 Contact
                             </a>
-                            {['HIPAA', 'GDPR', 'SOC 2'].map(cert => (
+                            {['AES-256', 'End-to-End', 'Zero-Knowledge'].map(cert => (
                                 <span key={cert} className={`${theme.textMuted} text-sm`}>{cert}</span>
                             ))}
                         </div>
